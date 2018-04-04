@@ -1,0 +1,3 @@
+# by default /usr/local is missing from sudo path
+
+Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin

@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/stretch64"
+  config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+  config.vm.synced_folder "D:\\Downloads", "/downloads", type: "virtualbox"
+  config.vm.provision :shell, :path => "provision/base.sh"
+  config.vm.provision :shell, :path => "provision/docker.sh"
+#  config.vm.provision :shell, :path => "provision/nodejs8.sh"
+  config.ssh.insert_key = false
+end

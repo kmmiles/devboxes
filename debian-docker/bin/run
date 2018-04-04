@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd $(dirname $0)/..
+
+MSYS_NO_PATHCONV=1 docker run -it --rm -w /home/docker -v $(pwd):/docker debian/devbox:1.0 bash

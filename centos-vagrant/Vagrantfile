@@ -1,0 +1,25 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+  config.vm.synced_folder "D:\\Downloads", "/downloads", type: "virtualbox"
+  config.persistent_storage.enabled = true
+  config.persistent_storage.location = "docker.vdi"
+  config.persistent_storage.partition = false
+  config.persistent_storage.diskdevice = '/dev/sdb'
+  config.persistent_storage.size = 20000
+  config.persistent_storage.use_lvm = false
+  config.vm.provision :shell, :path => "provision/base.sh"
+  config.vm.provision :shell, :path => "provision/docker.sh"
+# config.vm.provision :shell, :path => "provision/git2.sh"
+# config.vm.provision :shell, :path => "provision/k8.sh"
+# config.vm.provision :shell, :path => "provision/nodejs8.sh"
+# config.vm.provision :shell, :path => "provision/cockpit.sh"
+# config.vm.provision :shell, :path => "provision/xorg.sh"
+# config.vm.provision :shell, :path => "provision/cinnamon.sh"
+# config.vm.provision :shell, :path => "provision/chrome.sh"
+# config.vm.provision :shell, :path => "provision/wine.sh"
+# config.vm.provision :shell, :path => "provision/vscode.sh"
+# config.vm.provision :shell, privileged: false, :path => "provision/set-xorg-hidpi.sh"
+# config.vm.provision :shell, privileged: false, :path => "provision/set-oracle-java8.sh"
+  config.ssh.insert_key = false
+end
