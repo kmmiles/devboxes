@@ -22,4 +22,4 @@ RUN cd /home/docker && \
     cd dotfiles && chmod +x copy.sh && ./copy.sh && \
     cd .. && rm -rf dotfiles
 
-CMD /bin/bash
+CMD tail -f /var/log/faillog

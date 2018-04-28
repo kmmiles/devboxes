@@ -2,6 +2,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
   config.vm.synced_folder "D:\\Downloads", "/downloads", type: "virtualbox"
+  config.vm.synced_folder "D:\\Development", "/development", type: "virtualbox"
   config.persistent_storage.enabled = true
   config.persistent_storage.location = "docker.vdi"
   config.persistent_storage.partition = false
